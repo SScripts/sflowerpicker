@@ -19,7 +19,7 @@ public class Stop extends Task {
     @Override
     public boolean activate() {
         final Item i = ctx.backpack.select().id(SeedID).poll();
-        return !ctx.backpack.select().contains(i) && ctx.bank.opened();
+        return !ctx.backpack.select().contains(i) && !ctx.bank.opened();
     }
 
     @Override

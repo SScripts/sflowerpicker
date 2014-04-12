@@ -7,17 +7,18 @@ import org.powerbot.script.PollingScript;
 import org.powerbot.script.Script;
 
 
+
+
+
 import sflowerpicker.task.Task;
-import sflowerpicker.task.banking.CloseBank;
-import sflowerpicker.task.banking.Deposit;
-
-
-import sflowerpicker.task.banking.OpenBank;
-import sflowerpicker.task.banking.Start;
+import sflowerpicker.task.banking.*;
+import sflowerpicker.task.methods.Start;
+import sflowerpicker.task.methods.Stop;
 import sflowerpicker.task.planting.Plating;
 import sflowerpicker.task.walking.ChangeSpot;
 import sflowerpicker.task.walking.WalkToBank;
 import sflowerpicker.task.walking.WalkToSpot;
+
 
 
 
@@ -46,7 +47,7 @@ public class SFlowerPicker extends PollingScript<org.powerbot.script.rt6.ClientC
         tasks.add(new WalkToSpot(ctx));
         tasks.add(new Start(ctx));
         tasks.add(new ChangeSpot(ctx));
-         
+        tasks.add(new Stop(ctx));
     }
 
     public static boolean isFail;

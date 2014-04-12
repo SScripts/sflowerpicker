@@ -1,4 +1,4 @@
-package sflowerpicker.task.banking;
+package sflowerpicker.task.methods;
 
 import java.util.concurrent.Callable;
 

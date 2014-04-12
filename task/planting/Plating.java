@@ -20,7 +20,7 @@ public class Plating extends Task {
 
     private final int SeedID = 299;
 
-    Area PlantArea = new Area(new Tile (3175, 3475, 0),
+    Area plantArea = new Area(new Tile (3175, 3475, 0),
             new Tile (3135, 3475, 0),
             new Tile (3135, 3483, 0),
             new Tile (3175, 3483, 0));
@@ -30,7 +30,7 @@ public class Plating extends Task {
 
     @Override
     public boolean activate() {
-        return !ctx.bank.opened() && PlantArea.contains(ctx.players.local().tile()) && ctx.backpack.select().count() !=28;
+        return !ctx.bank.opened() && plantArea.contains(ctx.players.local().tile()) && ctx.backpack.select().count() !=28;
     }
 
     @Override

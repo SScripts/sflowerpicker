@@ -16,7 +16,7 @@ public class Deposit extends Task {
         super(ctx);
     }
 
-    private final int Seeds = 299;
+    private final int SeedID = 299;
 
     @Override
     public boolean activate() {
@@ -39,7 +39,7 @@ public class Deposit extends Task {
         }
         if (ctx.backpack.isEmpty()){
         	SFlowerPicker.Status = "withdrawing Seeds";
-        	ctx.bank.withdraw(Seeds, 50);
+        	ctx.bank.withdraw(SeedID, 50);
        	
         }
 

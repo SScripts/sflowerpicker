@@ -18,14 +18,14 @@ public class WalkToSpot extends Task {
 
     Tile spotTile = new Tile(3173, 3478, 0);
 
-    Area PlantArea = new Area(new Tile (3175, 3477, 0),
+    Area plantArea = new Area(new Tile (3175, 3477, 0),
             new Tile (3172, 3477, 0),
             new Tile (3172, 3480, 0),
             new Tile (3175, 3480, 0));
 
     @Override
     public boolean activate() {
-        return !ctx.bank.opened() && ctx.backpack.select().count() == 1 && !PlantArea.contains(ctx.players.local().tile());
+        return !ctx.bank.opened() && ctx.backpack.select().count() == 1 && !plantArea.contains(ctx.players.local().tile());
     }
 
     @Override

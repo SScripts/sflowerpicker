@@ -14,8 +14,8 @@ public class ChangeSpot extends Task {
 		
 	}
 	
-    Tile SpotOne = new Tile(3170, 3480, 0);
-    Tile SpotTwo = new Tile (3171, 3476, 0);
+    Tile spotOne = new Tile(3170, 3480, 0);
+    Tile spotTwo = new Tile (3171, 3476, 0);
 
 	@Override
 	public boolean activate() {
@@ -27,14 +27,14 @@ public class ChangeSpot extends Task {
 	public void execute() {
 		switch (Random.nextInt(0, 2)) {
 		default:
-			ctx.movement.step(SpotOne);
+			ctx.movement.step(spotOne);
 	        SFlowerPicker.Status = "Moving to an other Spot";
 	        wait(2500);
 			SFlowerPicker.isFail = false;
 			break;
 
 		case 2:
-			ctx.movement.step(SpotTwo);
+			ctx.movement.step(spotTwo);
 	        SFlowerPicker.Status = "Moving to an other Spot";
 	        wait(2500);
 			SFlowerPicker.isFail = false;

@@ -8,14 +8,10 @@ import sflowerpicker.SFlowerPicker;
 import sflowerpicker.task.Task;
 
 
-
-
 public class WalkToBank extends Task {
     public WalkToBank(ClientContext ctx) {
         super(ctx);
     }
-
-
 
     Tile bankTile = new Tile(3148, 3475, 0);
 

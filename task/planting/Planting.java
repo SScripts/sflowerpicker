@@ -40,13 +40,12 @@ public class Planting extends Task {
             i.interact("Plant");
             SFlowerPicker.picked ++;
             SFlowerPicker.Status = "Plating Flower";
-            wait(825);
             Condition.wait(new Callable<Boolean>() {
             	@Override
             	public Boolean call() throws Exception {
             		return pick.visible();
             	}
-            }, 500, 2);
+            }, 2000, 2);
         }
 
 
@@ -64,11 +63,6 @@ public class Planting extends Task {
         
     }
     
-    public void wait(int ms) {
-        try {
-            Thread.sleep(Math.max(5, (int) (ms * Random.nextDouble(0.76, 1.45))));
-        } catch (InterruptedException ignored) {
-        }
-    }
+
     
 }

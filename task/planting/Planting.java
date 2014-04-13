@@ -45,7 +45,7 @@ public class Planting extends Task {
             	public Boolean call() throws Exception {
             		return pick.visible();
             	}
-            }, 2000, 2);
+            }, 1500, 2);
         }
 
 

@@ -14,8 +14,8 @@ public class ChangeSpot extends Task {
 		
 	}
 	
-    Tile spotOne = new Tile(3170, 3480, 0);
-    Tile spotTwo = new Tile (3171, 3476, 0);
+    private final Tile spotOne = new Tile(3170, 3480, 0);
+    private final Tile spotTwo = new Tile (3171, 3476, 0);
 
 	@Override
 	public boolean activate() {

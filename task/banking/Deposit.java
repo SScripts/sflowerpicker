@@ -4,6 +4,7 @@ import org.powerbot.script.Condition;
 
 
 import org.powerbot.script.rt6.ClientContext;
+import org.powerbot.script.rt6.Item;
 
 import sflowerpicker.SFlowerPicker;
 import sflowerpicker.task.Task;
@@ -18,6 +19,7 @@ public class Deposit extends Task {
 
     private final int SeedID = 299;
 
+
     @Override
     public boolean activate() {
         return ctx.bank.opened();
@@ -25,7 +27,7 @@ public class Deposit extends Task {
 
     @Override
     public void execute() {
-        if (!ctx.backpack.isEmpty()){
+        if (ctx.backpack.select().count() == 28){
             ctx.bank.depositInventory();
             SFlowerPicker.Status = "Depositing Inventory";
             Condition.wait(new Callable<Boolean>() {
@@ -41,6 +43,15 @@ public class Deposit extends Task {
         	SFlowerPicker.Status = "withdrawing Seeds";
         	ctx.bank.withdraw(SeedID, 50);
        	
+        }
+        if (ctx.backpack.select().count() == 1) {
+        	ctx.bank.close();
+            Condition.wait(new Callable<Boolean>() {
+                @Override
+                public Boolean call() throws Exception {
+                    return !ctx.bank.opened();
+                }
+            }, 500, 2);
         }
 
     }

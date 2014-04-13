@@ -1,32 +1,26 @@
 package sflowerpicker;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.powerbot.script.MessageEvent;
 import org.powerbot.script.MessageListener;
 import org.powerbot.script.PaintListener;
 import org.powerbot.script.PollingScript;
 import org.powerbot.script.Script;
 
-
-
-
-
 import sflowerpicker.task.Task;
-import sflowerpicker.task.banking.*;
+import sflowerpicker.task.banking.Deposit;
+import sflowerpicker.task.banking.OpenBank;
 import sflowerpicker.task.methods.Start;
 import sflowerpicker.task.methods.Stop;
-import sflowerpicker.task.planting.Plating;
+import sflowerpicker.task.planting.Planting;
 import sflowerpicker.task.walking.ChangeSpot;
 import sflowerpicker.task.walking.WalkToBank;
 import sflowerpicker.task.walking.WalkToSpot;
-
-
-
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Script.Manifest(description = "Plats Flowers and picks them up, great Money", name = "SFlowerPicker")
 
@@ -39,10 +33,9 @@ public class SFlowerPicker extends PollingScript<org.powerbot.script.rt6.ClientC
     
     @Override
     public void start() {
-        tasks.add(new CloseBank(ctx));
         tasks.add(new Deposit(ctx));
         tasks.add(new OpenBank(ctx));
-        tasks.add(new Plating(ctx));
+        tasks.add(new Planting(ctx));
         tasks.add(new WalkToBank(ctx));
         tasks.add(new WalkToSpot(ctx));
         tasks.add(new Start(ctx));

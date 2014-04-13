@@ -16,9 +16,9 @@ public class WalkToSpot extends Task {
         super(ctx);
     }
 
-    Tile spotTile = new Tile(3173, 3478, 0);
+    private final Tile spotTile = new Tile(3173, 3478, 0);
 
-    Area plantArea = new Area(new Tile (3175, 3477, 0),
+    private final Area plantArea = new Area(new Tile (3175, 3477, 0),
             new Tile (3172, 3477, 0),
             new Tile (3172, 3480, 0),
             new Tile (3175, 3480, 0));

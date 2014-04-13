@@ -13,7 +13,7 @@ public class WalkToBank extends Task {
         super(ctx);
     }
 
-    Tile bankTile = new Tile(3148, 3475, 0);
+    private final Tile bankTile = new Tile(3148, 3475, 0);
 
     @Override
     public boolean activate() {

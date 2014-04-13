@@ -13,20 +13,20 @@ import sflowerpicker.task.Task;
 import java.util.concurrent.Callable;
 
 
-public class Plating extends Task {
-    public Plating(ClientContext ctx) {
+public class Planting extends Task {
+    public Planting(ClientContext ctx) {
         super(ctx);
     }
 
     private final int SeedID = 299;
 
-    Area plantArea = new Area(new Tile (3175, 3475, 0),
+    private final Area plantArea = new Area(new Tile (3175, 3475, 0),
             new Tile (3135, 3475, 0),
             new Tile (3135, 3483, 0),
             new Tile (3175, 3483, 0));
 
 
-    Component pick = ctx.widgets.widget(1188).component(12);
+    private final Component pick = ctx.widgets.widget(1188).component(12);
 
     @Override
     public boolean activate() {
@@ -36,21 +36,19 @@ public class Plating extends Task {
     @Override
     public void execute() {
         if (!pick.visible() && ctx.players.local().animation() == -1){
-            for (Item i: ctx.backpack.select().id(SeedID)){
-                i.interact("Plant");
-                SFlowerPicker.picked ++;
-                SFlowerPicker.Status = "Plating Flower";
-                wait(825);
-                Condition.wait(new Callable<Boolean>() {
-                    @Override
-                    public Boolean call() throws Exception {
-                        return pick.visible();
-                    }
-                }, 500, 2);
-            }
-
-
+            Item i = ctx.backpack.select().id(SeedID).poll();
+            i.interact("Plant");
+            SFlowerPicker.picked ++;
+            SFlowerPicker.Status = "Plating Flower";
+            wait(825);
+            Condition.wait(new Callable<Boolean>() {
+            	@Override
+            	public Boolean call() throws Exception {
+            		return pick.visible();
+            	}
+            }, 500, 2);
         }
+
 
         if (pick.valid()){
             ctx.keyboard.send("1");

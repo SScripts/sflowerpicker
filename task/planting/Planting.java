@@ -37,15 +37,16 @@ public class Planting extends Task {
     public void execute() {
         if (!pick.visible() && ctx.players.local().animation() == -1){
             Item i = ctx.backpack.select().id(SeedID).poll();
-            i.interact("Plant");
-            SFlowerPicker.picked ++;
-            SFlowerPicker.Status = "Plating Flower";
-            Condition.wait(new Callable<Boolean>() {
-            	@Override
-            	public Boolean call() throws Exception {
-            		return pick.visible();
-            	}
-            }, 1500, 2);
+            if (i.interact("Plant")){
+            	SFlowerPicker.picked ++;
+            	SFlowerPicker.Status = "Plating Flower";
+            	Condition.wait(new Callable<Boolean>() {
+            		@Override
+            		public Boolean call() throws Exception {
+            			return pick.visible();
+            		}
+            	}, 1500, 2);
+            }
         }
 
 

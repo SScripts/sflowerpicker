@@ -25,12 +25,13 @@ public class OpenBank extends Task {
     @Override
     public void execute() {
         SFlowerPicker.Status = "Opening Bank";
-        ctx.bank.open();
-        Condition.wait(new Callable<Boolean>() {
-            @Override
-            public Boolean call() throws Exception {
-                return ctx.bank.opened();
-            }
-        }, 500, 2);
+        if(ctx.bank.open()){
+        	Condition.wait(new Callable<Boolean>() {
+            	@Override
+            	public Boolean call() throws Exception {
+                	return ctx.bank.opened();
+            	}
+        	}, 500, 2);
+        }
     }
 }
